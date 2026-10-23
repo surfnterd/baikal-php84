@@ -1,0 +1,13 @@
+services:
+  baikal:
+    build: .
+    image: baikal-php84:0.10.1
+    container_name: baikal
+    restart: unless-stopped
+    mem_limit: 256m
+    ports:
+      # Localhost only. Put a reverse proxy with TLS in front of it.
+      - "127.0.0.1:8802:80"
+    volumes:
+      - ./config:/var/www/baikal/config
+      - ./data:/var/www/baikal/Specific
