@@ -4,7 +4,7 @@
 # To bump PHP: rebuild with `docker compose build --pull && docker compose up -d`.
 FROM ckulka/baikal:nginx@sha256:1a901125d121a3e414cda87c617bd322c57ae86b9d2aedbff7b3a7ac84bb23aa AS src
 
-FROM php:8.4-fpm-alpine
+FROM php:8.4.28-fpm-alpine
 RUN addgroup -g 101 -S baikal && adduser -S -D -H -u 101 -G baikal baikal \
  && apk add --no-cache nginx \
  && cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" \
